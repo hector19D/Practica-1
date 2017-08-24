@@ -1,7 +1,3 @@
-//Lorenzo Cruz Hector Eduardo
-//version:  Visual Studio 2017 
-
-
 /* Este programa dibuja una "Tetera", este objeto esta definido
  * en GLUT, se crea una fuente de luz, y un material */
 
