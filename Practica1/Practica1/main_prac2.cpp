@@ -1,7 +1,7 @@
 //Semestre 2017 - 2
 //************************************************************//
 //************************************************************//
-//************** Alumno (s): *********************************//
+//************** Alumno (s): Lorenzo Cruz Hector Eduardo*********************************//
 //*************											******//
 //*************											******//
 //************************************************************//
@@ -31,63 +31,32 @@ void display ( void )   // Creamos la funcion donde se dibuja
 	//GL_POLYGON  Crea poligonos acepta n numero de vertices
 	//glColor3f(0.0, 0.0, 0.0);  SIRVE PARA MODIFICAR EL COLOR
 	glPointSize(10.0);
+	//se escribe la letrta "C"
 	glBegin(GL_POLYGON);
-	glColor3f(1.0,0.0,0.0);
-	//glVertex3f(1.0,1.0,-1.2);
-	//glColor3f(1.0, 1.0, 0.0);
+	glColor3f(0.0,1.0,0.0);
 	glVertex3f(1.0, 9.0, -1.2);
-	//glColor3f(0.0, 0.0, 1.0);
 	glVertex3f(9.0, 9.0, -1.2);
-	//glColor3f(0.0, 1.0, 0.0);
 	glVertex3f(9.0, 8.0, -1.2);
-	//glColor3f(1.0, 0.0, 1.0);
 	glVertex3f(3.0, 8.0, -1.2);
-	/*glColor3f(1.0, 0.5, 1.0);
-	glVertex3f(3.0, 3.0, -1.2);
-	glColor3f(0.2, 0.0, 0.6);
-	glVertex3f(9.0, 3.0, -1.2);
-	glColor3f(0.7, 0.2, 1.0);
-	glVertex3f(9.0, 1.0, -1.2);*/
 	glEnd();
 	glPointSize(10.0);
 	glBegin(GL_POLYGON);
 	glColor3f(0.0, 1.0, 0.0);
 	glVertex3f(1.0, 1.0, -1.2);
-	//glColor3f(1.0, 1.0, 0.0);
 	glVertex3f(1.0, 9.0, -1.2);
-	//glColor3f(0.0, 0.0, 1.0);
-	//glVertex3f(9.0, 9.0, -1.2);
-	//glColor3f(0.0, 1.0, 0.0);
-	//glVertex3f(9.0, 7.0, -1.2);
-	//glColor3f(1.0, 0.0, 1.0);
 	glVertex3f(3.0, 8.0, -1.2);
-	//glColor3f(1.0, 0.5, 1.0);
 	glVertex3f(3.0, 2.0, -1.2);
-	//glColor3f(0.2, 0.0, 0.6);
-	//glVertex3f(9.0, 3.0, -1.2);
-	//glColor3f(0.7, 0.2, 1.0);
-	//glVertex3f(9.0, 1.0, -1.2);
 	glEnd();
 	glBegin(GL_POLYGON);
-	glColor3f(0.0, 0.0, 1.0);
+	glColor3f(0.0, 1.0, 0.0);
 	glVertex3f(1.0, 1.0, -1.2);
-	//glColor3f(1.0, 1.0, 0.0);
-	//glVertex3f(1.0, 9.0, -1.2);
-	//glColor3f(0.0, 0.0, 1.0);
-	//glVertex3f(9.0, 9.0, -1.2);
-	//glColor3f(0.0, 1.0, 0.0);
-	//glVertex3f(9.0, 7.0, -1.2);
-	//glColor3f(1.0, 0.0, 1.0);
-	//glVertex3f(3.0, 7.0, -1.2);
-	//glColor3f(1.0, 0.5, 1.0);
 	glVertex3f(3.0, 2.0, -1.2);
-	//glColor3f(0.2, 0.0, 0.6);
 	glVertex3f(9.0, 2.0, -1.2);
-	//glColor3f(0.7, 0.2, 1.0);
 	glVertex3f(9.0, 1.0, -1.2);
 	glEnd();
+	//Se escribe la letra "L"
 	glBegin(GL_LINE_LOOP);
-	glColor3f(1.0, 0.0, 0.0);
+	glColor3f(0.0, 0.0, 1.0);
 	glVertex3f(-1.0, 1.0, -1.2);
 	glVertex3f(-9.0, 1.0, -1.2);
 	glVertex3f(-9.0, 9.0, -1.2);
@@ -95,23 +64,45 @@ void display ( void )   // Creamos la funcion donde se dibuja
 	glVertex3f(-7.0, 2.0, -1.2);
 	glVertex3f(-1.0, 2.0, -1.2);
 	glEnd();
-	glBegin(GL_LINE_LOOP);
+	//Se escribe la letra "E"
+	glBegin(GL_POLYGON);
 	glColor3f(1.0, 0.0, 0.0);
 	glVertex3f(-11.0, 1.0, -1.2);
-	glVertex3f(-19.0, 1.0, -1.2);
-	glVertex3f(-19.0, 9.0, -1.2);
-	glVertex3f(-11.0, 9.0, -1.2);
-	glVertex3f(-11.0, 8.0, -1.2);
-	glVertex3f(-17.0, 8.0, -1.2);
-	glVertex3f(-17.0, 5.5, -1.2);
-	glVertex3f(-13.0, 5.5, -1.2);
-	glVertex3f(-13.0, 4.5, -1.2);
-	glVertex3f(-17.0, 4.5, -1.2);
+	glVertex3f(-17.0, 1.0, -1.2);
 	glVertex3f(-17.0, 2.0, -1.2);
 	glVertex3f(-11.0, 2.0, -1.2);
 	glEnd();
-	glBegin(GL_LINE_LOOP);
+	glBegin(GL_POLYGON);
 	glColor3f(1.0, 0.0, 0.0);
+	glVertex3f(-19.0, 1.0, -1.2);
+	glVertex3f(-19.0, 9.0, -1.2);
+	glVertex3f(-17.0, 9.0, -1.2);
+	glVertex3f(-17.0, 1.0, -1.2);
+	glEnd();
+	glBegin(GL_POLYGON);
+	glColor3f(1.0, 0.0, 0.0);
+	glVertex3f(-19.0, 1.0, -1.2);
+	glVertex3f(-19.0, 9.0, -1.2);
+	glVertex3f(-17.0, 9.0, -1.2);
+	glVertex3f(-17.0, 1.0, -1.2);
+	glEnd();
+	glBegin(GL_POLYGON);
+	glColor3f(1.0, 0.0, 0.0);
+	glVertex3f(-11.0, 8.0, -1.2);
+	glVertex3f(-17.0, 8.0, -1.2);
+	glVertex3f(-17.0, 9.0, -1.2);
+	glVertex3f(-11.0, 9.0, -1.2);
+	glEnd();
+	glBegin(GL_POLYGON);
+	glColor3f(1.0, 0.0, 0.0);
+	glVertex3f(-14.0, 4.5, -1.2);
+	glVertex3f(-17.0, 4.5, -1.2);
+	glVertex3f(-17.0, 5.5, -1.2);
+	glVertex3f(-14.0, 5.5, -1.2);
+	glEnd();
+	//Se escribe a letra "H"
+	glBegin(GL_LINE_LOOP);
+	glColor3f(0.5, 0.5, 0.5);
 	glVertex3f(-21.0, 1.0, -1.2);
 	glVertex3f(-23.0, 1.0, -1.2);
 	glVertex3f(-23.0, 4.5, -1.2);
@@ -125,18 +116,33 @@ void display ( void )   // Creamos la funcion donde se dibuja
 	glVertex3f(-23.0, 9.0, -1.2);
 	glVertex3f(-21.0, 9.0, -1.2);
 	glEnd();
-
-	glBegin(GL_LINE_LOOP);
+	//Se crea L estrella
+	glBegin(GL_POLYGON);
 	glColor3f(1.0, 0.0, 0.0);
-	glVertex3f(-10.0, -1.0, -1.2);
 	glVertex3f(-8.0, -3.0, -1.2);
+	glColor3f(1.0, 1.0, 0.0);
 	glVertex3f(-4.0, -3.0, -1.2);
+	glColor3f(1.0, 0.0, 1.0);
 	glVertex3f(-7.0, -4.5, -1.2);
+	glColor3f(1.0, 1.0, 1.0);
 	glVertex3f(-4.5, -7.0, -1.2);
+	glColor3f(1.0, 0.3, 0.5);
 	glVertex3f(-10.0, -5.5, -1.2);
+	glColor3f(1.0, 0.5, 1.0);
 	glVertex3f(-15.5, -7.0, -1.2);
+	glColor3f(0.3, 0.5, 1.0);
 	glVertex3f(-13.0, -4.5, -1.2);
+	glColor3f(0.0, 1.0, 1.0);
 	glVertex3f(-16.0, -3.0, -1.2);
+	glColor3f(0.5, 0.5, 1.0);
+	glVertex3f(-12.0, -3.0, -1.2);
+	glEnd();
+	glBegin(GL_POLYGON);
+	glColor3f(0.0, 1.0, 0.0);
+	glVertex3f(-10.0, -1.0, -1.2);
+	glColor3f(0.0, 0.8, 0.3);
+	glVertex3f(-8.0, -3.0, -1.2);
+	glColor3f(0.2, 0.6, 0.7);
 	glVertex3f(-12.0, -3.0, -1.2);
 	glEnd();
 
