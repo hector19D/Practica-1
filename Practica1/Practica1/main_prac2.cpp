@@ -183,7 +183,7 @@ int main ( int argc, char** argv )   // Main Function
 {
   glutInit            (&argc, argv); // Inicializamos OpenGL
   glutInitDisplayMode (GLUT_RGBA | GLUT_SINGLE); // Display Mode (Clores RGB y alpha | Buffer Sencillo )
-  glutInitWindowSize  (500, 500);	// Tamaño de la Ventana
+  glutInitWindowSize  (30000, 50000);	// Tamaño de la Ventana
   glutInitWindowPosition (0, 0);	//Posicion de la Ventana
   glutCreateWindow    ("Practica 2"); // Nombre de la Ventana
   InitGL ();						// Parametros iniciales de la aplicacion
