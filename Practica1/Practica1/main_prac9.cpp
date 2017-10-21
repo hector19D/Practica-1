@@ -282,12 +282,7 @@ void display ( void )   // Creamos la funcion donde se dibuja
 		glScalef(5.5, 0.36, 9.5);
 		prisma(t_Madera1.GLindex, t_Madera1.GLindex);
 		glPopMatrix();
-
 	glPopMatrix();
-	glDisable(GL_TEXTURE_2D);
-		renderBitmapCharacter(-11, 12.0, -14.0, (void *)font, "Practica 8");
-		renderBitmapCharacter(-11, 10.5, -14, (void *)font, "Texturas");
-	glEnable(GL_TEXTURE_2D);
 
 	glutSwapBuffers ( );
 
