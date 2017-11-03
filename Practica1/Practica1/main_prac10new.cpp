@@ -7,6 +7,8 @@
 //************************************************************//
 //************************************************************//
 
+#include <Windows.h>;
+
 #include "texture.h"
 #include "figuras.h"
 #include "Camera.h"
@@ -17,6 +19,8 @@
 #if (_MSC_VER == 1900)
 #   pragma comment( lib, "legacy_stdio_definitions.lib" )
 #endif
+bool cancion = true;
+void sonido();
 
 CCamera objCamera; 
 GLfloat g_lookupdown = 0.0f;    // Look Position In The Z-Axis (NEW) 
@@ -115,7 +119,6 @@ void InitGL ( GLvoid )     // Inicializamos parametros
 	
 	llanta._3dsLoad("k_rueda.3ds");
 
-
 	objCamera.Position_Camera(10,2.5f,13, 10,2.5f,10, 0, 1, 0);
 
 }
@@ -139,7 +142,7 @@ void display ( void )   // Creamos la funcion donde se dibuja
 	glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	
 	glLoadIdentity();
-	
+	sonido();
 	glPushMatrix();
 
 		glRotatef(g_lookupdown,1.0f,0,0);
@@ -264,7 +267,6 @@ void display ( void )   // Creamos la funcion donde se dibuja
 
 		glPopMatrix();
 	glPopMatrix();
-
 	glDisable(GL_TEXTURE_2D);
 	glDisable(GL_LIGHTING);
 		glColor3f(1.0,0.0,0.0);
@@ -273,9 +275,7 @@ void display ( void )   // Creamos la funcion donde se dibuja
 		glColor3f(1.0,1.0,1.0);
 	glEnable(GL_LIGHTING);
 	glEnable(GL_TEXTURE_2D);
-
 	glutSwapBuffers ( );
-
 }
 
 void animacion()
@@ -362,6 +362,10 @@ void keyboard ( unsigned char key, int x, int y )  // Create Keyboard Function
 		case 'D':
 			objCamera.Strafe_Camera( CAMERASPEED+0.4 );
 			break;
+		case 'c':
+		case 'C':
+			cancion = !cancion;
+			break;
 		case 'r':
 		case 'R':
 			g_fanimacion = false;
@@ -415,6 +419,14 @@ void arrow_keys ( int a_keys, int x, int y )  // Funcion para manejo de teclas e
   glutPostRedisplay();
 }
 
+void sonido() {
+	char soundfile[] = "violin.wav";
+	char soundfile1[] = "Opening.wav";
+	if (cancion)
+	{
+		PlaySound((LPCSTR)soundfile1, NULL, SND_LOOP | SND_ASYNC);
+	}
+}
 
 int main ( int argc, char** argv )   // Main Function
 {
@@ -428,9 +440,8 @@ int main ( int argc, char** argv )   // Main Function
   glutDisplayFunc     ( display );  //Indicamos a Glut función de dibujo
   glutReshapeFunc     ( reshape );	//Indicamos a Glut función en caso de cambio de tamano
   glutKeyboardFunc    ( keyboard );	//Indicamos a Glut función de manejo de teclado
-  glutSpecialFunc     ( arrow_keys );	//Otras
+  glutSpecialFunc     ( arrow_keys);	//Otras
   glutIdleFunc		  ( animacion );
   glutMainLoop        ( );          // 
-
   return 0;
 }

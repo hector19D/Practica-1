@@ -9,7 +9,7 @@ void CCamera::Position_Camera(float pos_x,  float pos_y,  float pos_z,
 							  float view_x, float view_y, float view_z,
 							  float up_x,   float up_y,   float up_z)
 {
-	mPos	= tVector3(pos_x,  pos_y,  pos_z ); // set position
+	mPos	= tVector3(pos_x,  pos_y,  pos_z); // set position
 	mView	= tVector3(view_x, view_y, view_z); // set view
 	mUp		= tVector3(up_x,   up_y,   up_z  ); // set the up vector	
 }

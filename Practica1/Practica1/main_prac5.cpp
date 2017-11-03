@@ -7,6 +7,11 @@
 //************************************************************//
 #include "Main.h"
 
+float posX = 0, posY = 2.5, posZ = -3.5, rotRodIzq = 0;
+#define MAX_FRAMES 60
+int i_max_steps = 90;
+int i_curr_steps = 0;
+
 float transZ = -5.0f;
 float transX = 0.0f;
 float angleX = 0.0f;
@@ -14,7 +19,7 @@ float angleY = 0.0f;
 int screenW = 0.0;
 int screenH = 0.0;
 float angHombro = 0.0;
-float angCodo = 0.0;
+float angCodo = 90.0;
 float angMano = 0.0;
 float angPulgar1 = 0.0;
 float angPulgar2 = 0.0;
@@ -34,6 +39,77 @@ float angMeñique3 = 0.0;
 
 GLfloat Position[]= { 0.0f, 3.0f, 0.0f, 1.0f };			// Light Position
 GLfloat Position2[]= { 0.0f, 0.0f, -5.0f, 1.0f };			// Light Position
+
+typedef struct _frame
+{
+	//Variables para GUARDAR Key Frames
+	float posX;		//Variable para PosicionX
+	float posY;		//Variable para PosicionY
+	float posZ;		//Variable para PosicionZ
+	float incX;		//Variable para IncrementoX
+	float incY;		//Variable para IncrementoY
+	float incZ;		//Variable para IncrementoZ
+	float rotRodIzq;
+	float rotInc;
+	float giroMonito;
+	float giroMonitoInc;
+	float giroBrazoIzq;
+	float giroBrazoIzqInc;
+	float giroBrazoDerInc;
+	float giroBrazoDer;
+	float rotRodDer;
+	float rotRodDerInc;
+	float giroCabezaInc;
+	float giroCabeza;
+	float giroCinturaInc;
+	float giroCintura;
+
+}FRAME;
+
+FRAME KeyFrame[MAX_FRAMES];
+int FrameIndex = 0;			//introducir datos
+bool play = false;
+int playIndex = 0;
+
+int frame = 0, time, timebase = 0;
+char s[30];
+
+void saveFrame(void)
+{
+
+	printf("frameindex %d\n", FrameIndex);
+
+	KeyFrame[FrameIndex].posX = posX;
+	KeyFrame[FrameIndex].posY = posY;
+	KeyFrame[FrameIndex].posZ = posZ;
+
+	KeyFrame[FrameIndex].rotRodIzq = rotRodIzq;
+	KeyFrame[FrameIndex].giroMonito = giroMonito;
+	KeyFrame[FrameIndex].giroBrazoIzq = giroBrazoIzq;
+	KeyFrame[FrameIndex].giroBrazoDer = giroBrazoDer;
+	KeyFrame[FrameIndex].rotRodDer = rotRodDer;
+	KeyFrame[FrameIndex].giroCabeza = giroCabeza;
+	KeyFrame[FrameIndex].giroCintura = giroCintura;
+
+	FrameIndex++;
+}
+
+void interpolation(void)
+{
+	KeyFrame[playIndex].incX = (KeyFrame[playIndex + 1].posX - KeyFrame[playIndex].posX) / i_max_steps;
+	KeyFrame[playIndex].incY = (KeyFrame[playIndex + 1].posY - KeyFrame[playIndex].posY) / i_max_steps;
+	KeyFrame[playIndex].incZ = (KeyFrame[playIndex + 1].posZ - KeyFrame[playIndex].posZ) / i_max_steps;
+
+	KeyFrame[playIndex].rotInc = (KeyFrame[playIndex + 1].rotRodIzq - KeyFrame[playIndex].rotRodIzq) / i_max_steps;
+	KeyFrame[playIndex].giroMonitoInc = (KeyFrame[playIndex + 1].giroMonito - KeyFrame[playIndex].giroMonito) / i_max_steps;
+	KeyFrame[playIndex].giroBrazoIzqInc = (KeyFrame[playIndex + 1].giroBrazoIzq - KeyFrame[playIndex].giroBrazoIzq) / i_max_steps;
+	KeyFrame[playIndex].giroBrazoDerInc = (KeyFrame[playIndex + 1].giroBrazoDer - KeyFrame[playIndex].giroBrazoDer) / i_max_steps;
+	KeyFrame[playIndex].rotRodDerInc = (KeyFrame[playIndex + 1].rotRodDer - KeyFrame[playIndex].rotRodDer) / i_max_steps;
+	KeyFrame[playIndex].giroCabezaInc = (KeyFrame[playIndex + 1].giroCabeza - KeyFrame[playIndex].giroCabeza) / i_max_steps;
+	KeyFrame[playIndex].giroCinturaInc = (KeyFrame[playIndex + 1].giroCintura - KeyFrame[playIndex].giroCintura) / i_max_steps;
+
+}
+
 
 void InitGL ( void )     // Inicializamos parametros
 {
